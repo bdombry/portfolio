@@ -6,26 +6,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $host = 'localhost';
     $db = 'portfolio';
     $user = 'root';
-    $pass = '';
+    $pass = ''; // Mot de passe vide
 
-    $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+    try {
+        $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Récupérer les informations du formulaire
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+        // Récupérer les informations du formulaire
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
-    // Vérifier les informations de l'utilisateur
-    $query = $conn->prepare("SELECT * FROM users WHERE username = :username");
-    $query->bindParam(':username', $username, PDO::PARAM_STR);
-    $query->execute();
-    $user = $query->fetch(PDO::FETCH_ASSOC);
+        // Vérifier les informations de l'utilisateur
+        $query = $conn->prepare("SELECT * FROM users WHERE username = :username");
+        $query->bindParam(':username', $username, PDO::PARAM_STR);
+        $query->execute();
+        $user = $query->fetch(PDO::FETCH_ASSOC);
 
-    if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['admin'] = true;
-        header('Location: dashboard.php');
-        exit();
-    } else {
-        $error = 'Nom d\'utilisateur ou mot de passe incorrect';
+        if ($user && password_verify($password, $user['password'])) {
+            $_SESSION['admin'] = true;
+            header('Location: dashboard.php');
+            exit();
+        } else {
+            $error = 'Nom d\'utilisateur ou mot de passe incorrect';
+        }
+    } catch (PDOException $e) {
+        $error = 'Erreur de connexion à la base de données : ' . $e->getMessage();
     }
 }
 ?>
