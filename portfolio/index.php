@@ -21,14 +21,17 @@ $projects = $projects_query->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Matteo Balluais</title>
+    <title>Portfolio - Benjamin Dombry</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <header>
+<header>
         <div class="container">
             <div class="logo">
-                <img src="images/logo.png" alt="Logo">
+                <a href="index.php"><img src="images/Logo-ben-blanc.png" alt="Logo"></a>
             </div>
             <nav>
                 <ul>
@@ -39,44 +42,66 @@ $projects = $projects_query->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </header>
     <section id="main">
-        <div class="background-image"></div>
         <div class="main-content">
-            <h1>Matteo Balluais</h1>
-            <p>Développeur Web</p>
+            <div class="benjamin">
+                <h1>Benjamin</h1>
+            </div>
+            <div class="dombry">
+                <h1>Dombry</h1>
+            </div>
+            <p>Développeur Web - Chef de Projet Digital</p>
         </div>
     </section>
-    <section id="about">
-        <div class="container">
-            <div class="profile-photo">
-                <img src="images/photo.jpg" alt="Ma photo">
+    <section id="bento-boxes">
+        <div class="container bento-container">
+            <div class="bento-box photo">
+                <img src="images/photo_ben.webp" alt="Ma photo">
             </div>
-            <div class="bio">
-                <h2>Bienvenue sur mon portfolio</h2>
-                <p>Je suis Matteo Balluais, étudiant en Chef de Projet Digital à la Normandie Web School. Explorez avec moi le mariage entre passion et programmation.</p>
-                <a href="#projects" class="btn">En savoir plus</a>
+            <div class="bento-box description">
+                <h1>MOI C'EST BENJAMIN !</h1>
+                <div class="bento_gap">
+                    <p>J'ai découvert le monde du développement à 15 ans au lycée depuis je ne l'ai plus quitté. J'ai très vite compris la puissance et les possibilités infinies de ces outils et c'est pour cela que j'ai continué à évoluer dans ce domaine. Aujourd'hui étudiant je cherche à développer mes compétences pour pouvoir être à la hauteur de mes ambitions</p>
+                </div>
             </div>
-        </div>
-    </section>
-    <section id="skills">
-        <div class="container">
-            <h2>Ce que je sais faire</h2>
-            <div class="skills-grid">
-                <div class="skill">
-                    <img src="images/web-development.png" alt="Développement Web">
-                    <h3>Développement Web</h3>
-                    <p>Création de sites web interactifs, esthétiques et fonctionnels.</p>
+            <div class="bento-box skills">
+                <h2>SKILLS</h2>
+                <div class="bento_gap">
+                    <p>HTML | CSS | JavaScript</p>
+                    <p>Python | PHP | MySQL</p>
+                    <p>Wordpress</p>
+                    <p>Illustrator</p>
+                    <p>Anglais</p>
                 </div>
-                <div class="skill">
-                    <img src="images/project-management.png" alt="Gestion de projet">
-                    <h3>Gestion de projet</h3>
-                    <p>Coordination des initiatives numériques de la planification à la réalisation.</p>
+            </div>
+            <div class="bento-box links">
+                <div class="icon-container">
+                    <h2>FORMATION</h2>
+                    <div class="bento_gap">
+                        <p>Normandie Web School</p>
+                        <p>Bac +3 Chef de projet Digital</p>
+                        <p>Spécialité Dévelopment Web</p>
+                    </div>
                 </div>
+            </div>
+            <div class="bento-box icons">
+            <div class="link-header">Links</div>
+                <div class="icon-container">
+                    <a href="https://www.linkedin.com/in/benjamin-dombry-b8446a299/" target="_blank" class="icon-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:bdombry@normandiewebschool.fr" class="icon-link"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/bdombry" class="icon-link"><i class="fab fa-github"></i></i></a>
+                </div>
+            </div>
+            <div class="bento-box recent-projects">
+                <h2>DERNIER PROJET</h2>
+                <p>Koncepted</p>
+                <p>WeVPN</p>
+                <p>Pillar</p>
             </div>
         </div>
     </section>
     <section id="projects">
+        <h2>Mes Projets</h2>
         <div class="container">
-            <h2>Mes Projets</h2>
             <div class="projects-grid">
                 <?php foreach ($projects as $project): ?>
                     <div class="project-item">
@@ -90,18 +115,20 @@ $projects = $projects_query->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </section>
     <section id="contact">
-        <div class="container">
+        <div class="container_footer">
             <h2>Intéressé par mon profil?</h2>
             <p>N'hésitez pas à prendre contact</p>
-            <a href="mailto:contact@matteoballuais.fr" class="btn">Contactez-moi</a>
-            <p class="contact-info">Contact: matteoballuais@normandiewebschool.fr</p>
+            <a href="mailto:bdombry@normandiewebschool.fr" class="btn">Contactez-moi</a>
+            <p class="contact-info">Contact: bdombry@normandiewebschool.fr</p>
         </div>
     </section>
     <footer>
-        <div class="container">
-            <p>&copy; 2023 Matteo Balluais. Tous droits réservés.</p>
-            <a href="admin/login.php" class="btn">Contactez-moi</a>
+        <div class="container_footer">
+            <p>&copy; 2023 Benjamin Dombry. Tous droits réservés.</p>
+            <a href="admin/login.php" class="btn">Connexion Admin</a>
         </div>
     </footer>
+    <script src="js/script.js"></script>
 </body>
+
 </html>

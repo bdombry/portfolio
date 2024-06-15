@@ -33,7 +33,7 @@ $comments = $comments_query->fetchAll(PDO::FETCH_ASSOC);
 <body>
     <header>
         <h1>Dashboard Admin</h1>
-        <a href="logout.php">Déconnexion</a>
+        <a href="../index.php">Déconnexion</a>
     </header>
     <section id="projects">
         <h2>Projets</h2>

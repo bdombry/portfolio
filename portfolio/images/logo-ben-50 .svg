@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg2"
+   width="133.33333"
+   height="133.33333"
+   viewBox="0 0 133.33333 133.33333"
+   sodipodi:docname="logo-ben-50 .ai"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath16">
+      <path
+         d="M 0,100 H 100 V 0 H 0 Z"
+         id="path14" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath24">
+      <path
+         d="M -106.334,162.868 H 237.111 V -64.7773 h -343.445 z"
+         id="path22" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <g
+     id="g8"
+     inkscape:groupmode="layer"
+     inkscape:label="logo-ben-50 "
+     transform="matrix(1.3333333,0,0,-1.3333333,0,133.33333)">
+    <g
+       id="g10">
+      <g
+         id="g12"
+         clip-path="url(#clipPath16)">
+        <g
+           id="g18">
+          <g
+             id="g20" />
+          <g
+             id="g36">
+            <g
+               clip-path="url(#clipPath24)"
+               opacity="0.5"
+               id="g34">
+              <g
+                 transform="translate(115.455,131.1385)"
+                 id="g28">
+                <path
+                   d="m 0,0 c -15.312,0 -25.666,-6.842 -31.064,-20.521 -7.328,-9.979 -6.577,-90.907 -0.188,-87.921 20.461,-0.23 52.01,0.364 72.482,0.753 5.325,10.896 2.848,28.142 3.768,47.819 C 44.58,-22.539 38.524,-0.854 0,0"
+                   style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                   id="path26" />
+              </g>
+              <g
+                 transform="translate(-31.959,55.4561)"
+                 id="g32">
+                <path
+                   d="m 0,0 c 0,-21.087 1.571,-31.63 4.707,-31.63 19.174,-0.622 45.242,-1.498 64.388,-0.753 3.641,0 5.459,14.182 5.459,42.548 0,40.289 -11.107,60.434 -33.323,60.434 C 2.138,68.804 0.646,38.236 0,0"
+                   style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                   id="path30" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

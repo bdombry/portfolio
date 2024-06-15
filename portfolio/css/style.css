@@ -1,116 +1,405 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+/* Réinitialisation des styles par défaut du navigateur */
+* {
+    top: 0;
+    left: 0;
     margin: 0;
     padding: 0;
-    color: #333;
-    text-align: center;
+    box-sizing: border-box;
+    text-decoration: none;
 }
 
+/* Corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #111;
+    color: #f4f4f4;
+    line-height: 1.6;
+}
+
+/* Conteneur principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    
+}
+
+/* En-tête */
 header {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 1rem 0;
+    background-color: #111;
+    height: 10vh;
+    text-align: center;
 }
 
 .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.logo img {
-    width: 150px;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 20px; 
 }
 
-nav ul li {
-    margin: 0 1rem;
+header .logo img {
+    height: 50px;
 }
 
-nav ul li a {
+header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+header ul li {
+    margin: 0 15px;
+}
+
+header ul li a {
+    color: #f4f4f4;
     text-decoration: none;
-    color: #333;
-    font-weight: bold;
+    font-size: 1.2rem;
+    align-items: center;
 }
 
+header ul li a:hover {
+    color: #ff4500;
+}
+
+/* Section principale */
 #main {
     position: relative;
-    height: 100vh;
-    background: url('images/background.jpg') no-repeat center center/cover;
+    text-align: start;
+    color: #f4f4f4;
+    background-color: #111;
+    height: 90vh;
+    padding-left: 5%;
+    padding-top: 8%;
 }
 
-.background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+#main h1{
+    font-family: "Kanit", sans-serif;
+    font-weight: 400;
 }
 
-.main-content {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
+.benjamin{
+    margin-bottom: -70px;
 }
 
-#about, #skills, #projects, #contact {
+/* Pour les petits écrans */
+@media (min-width: 250px) and (max-width: 500px) {
+    .main-content{
+        padding-top: 40%;
+    }
+    .benjamin {
+        font-size: 10vw;
+        margin-bottom: -30px;
+    }
+
+    .dombry {
+        font-size: 16vw;
+    }
+}
+
+/* Pour les écrans de taille moyenne */
+@media (min-width: 500px) {
+    .benjamin {
+        font-size: 8vw;
+    }
+
+    .dombry {
+        font-size: 14vw;
+    }
+}
+
+/* Pour les grands écrans */
+@media (min-width: 992px) {
+    .benjamin {
+        font-size: 5vw;
+    }
+
+    .dombry {
+        font-size: 8vw;
+    }
+}
+
+
+#main .main-content p {
+    font-size: 1rem; /* Taille de police par défaut */
+}
+
+/* Pour les petits écrans */
+@media (min-width: 576px) {
+    #main .main-content p {
+        font-size: 1.25rem;
+    }
+}
+
+/* Pour les écrans de taille moyenne */
+@media (min-width: 768px) {
+    #main .main-content p {
+        font-size: 1.5rem;
+    }
+}
+
+/* Pour les grands écrans */
+@media (min-width: 992px) {
+    #main .main-content p {
+        font-size: 1.75rem;
+    }
+}
+
+/* Pour les très grands écrans */
+@media (min-width: 1200px) {
+    #main .main-content p {
+        font-size: 2rem;
+    }
+}
+
+
+/* Section "Bento Boxes" */
+#bento-boxes {
     padding: 2rem 0;
 }
 
-.profile-photo img {
-    width: 150px;
-    border-radius: 50%;
+
+#bento-boxes{
+    background-color: #1e1e1e;
 }
 
-.bio, .skills-grid, .projects-grid {
-    text-align: left;
+.bento-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 20px;
+    height: 80vh;
+
 }
 
-.bio .btn, .contact .btn {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    margin-top: 1rem;
-    color: white;
+.bento-box {
+    background-color: #111;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.bento-box:hover{
+    transform: scale(1.02);
+    transition: transform 0.5s ease;
+}
+
+.bento-box img {
+    max-width: 100%;
+    border-radius: 15px;
+}
+
+.photo {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    width: 100%;
+    height: 100%;
+    filter: grayscale(70%);
+    transition: transform 0.5s ease, filter 0.5 ease;
+}
+
+
+.photo img{
+    border-top-left-radius: 100px;
+}
+
+.photo:hover {
+    filter: none;
+    transform: scale(1.03);
+}
+
+
+.description {
+    grid-column: 2 / 4;
+    grid-row: 1 / 2;
+    width: 100%;
+    height: 100%;
+}
+
+.skills {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    width: 130%;
+    height: 100%;
+    background-color: #5b49d1;
+}
+/*formation*/
+.links {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    width: 70%;
+    height: 100%;
+    margin-left: 30%;
+    }
+
+.bento_gap{
+    margin-top: 10%;
+}
+
+/*links*/
+.icons {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    width: 100%;
+    height: 100%;
+    font-size: 2rem;
+}
+
+.icon-link {
+    color: #fff;
+    font-size: 2.5rem; /* Ajustement de la taille des icônes */
+    text-decoration: none;
+    width: auto;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    background-color: #222;
+    padding: 10px; /* Ajustement du padding pour les icônes */
+    border-radius: 15px; /* Rendre les icônes circulaires */
+}
+
+.icon-link:hover {
+    background-color: #444;
+}
+
+.recent-projects {
+    grid-column: 2 / 4;
+    grid-row: 3 / 4;
+    width: 100%;
+    height: 100%;
+}
+
+/* Section "Projects" */
+#projects {
+    margin-bottom: 2rem;
+    width: 100%;
+    padding: 2rem;
+    background-color: #222;
+}
+
+#projects h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+#projects .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+#projects .project-item {
     background-color: #333;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+#projects .project-item:hover {
+    transform: scale(1.05);
+}
+
+#projects .project-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+#projects .project-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Section "Contact" */
+#contact {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#contact h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#contact p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+#contact .btn {
+    background-color: #ff4500;
+    color: #f4f4f4;
+    padding: 0.5rem 1rem;
     text-decoration: none;
     border-radius: 5px;
 }
 
-.bio .btn:hover, .contact .btn:hover {
+#contact .btn:hover {
+    background-color: #ff5722;
+}
+
+#contact .contact-info {
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+/* Pied de page */
+footer {
+    background-color: #111;
+    color: #f4f4f4;
+    text-align: center;
+    padding: 1rem 0;
+    border-top: 2px solid #444;
+    margin-top: 2rem;
+}
+
+footer .btn {
+    background-color: #444;
+    color: #f4f4f4;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+footer .btn:hover {
     background-color: #555;
 }
 
-.skills-grid, .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .bento-container {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .photo, .description, .skills, .links, .formation, .icons, .recent-projects {
+        grid-column: 1 / 2;
+        grid-row: auto;
+    }
+
+    .skills, .links, .formation, .recent-projects {
+        width: 100%;
+        height: auto;
+    }
+    .links {
+        grid-column: 1 / 4;
+        grid-row: 2 / 3;
+        width: 90%;
+        height: 100%;
+        margin-left: 0%;
+    }
 }
 
-.skill, .project-item {
-    background-color: white;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    text-align: center;
-}
+/* ---------------------------------------------------------------------------- dashboard ---------------------------------------------------------------------------- */
 
-.skill img, .project-item img {
-    max-width: 100%;
-    margin-bottom: 1rem;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    padding: 1rem 0;
-}
