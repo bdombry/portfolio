@@ -48,20 +48,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </header>
     <section id="login">
         <form action="login.php" method="post">
-            <p>
-                <label for="username">Nom d'utilisateur:</label>
-                <input type="text" name="username" id="username" required>
-            </p>
-            <p>
-                <label for="password">Mot de passe:</label>
-                <input type="password" name="password" id="password" required>
-            </p>
-            <p>
-                <button type="submit">Connexion</button>
-            </p>
-            <?php if (isset($error)): ?>
-                <p style="color:red;"><?php echo $error; ?></p>
-            <?php endif; ?>
+            <div class="card">
+                <div class="input">
+                    <p>
+                        <input type="text" name="username" id="username" required="" autocomplete="off">
+                        <label for="username">Nom d'utilisateur:</label>
+                    </p>
+                </div>
+                <div class="input">
+                    <p>
+                        <input type="password" name="password" id="password" required="" autocomplete="off">
+                        <label for="password">Mot de passe:</label>
+                    </p>
+                </div>
+                <p>
+                    <button type="submit" class="btn_login">Connexion</button>
+                </p>
+                <a href="../index.php" class="deco">Retour</a>
+                <?php if (isset($error)): ?>
+                    <p style="color:red;"><?php echo $error; ?></p>
+                <?php endif; ?>
+            </div>
         </form>
     </section>
 </body>

@@ -23,35 +23,35 @@ $projects = $projects_query->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Benjamin Dombry</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
 </head>
 <body>
 <header>
-        <div class="container">
-            <div class="logo">
-                <a href="index.php"><img src="images/Logo-ben-blanc.png" alt="Logo"></a>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#projects">Projets</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+    <div class="container">
+        <div class="logo">
+            <a href="index.php"><img src="images/Logo-ben-blanc.png" alt="Logo"></a>
         </div>
-    </header>
-    <section id="main">
-        <div class="main-content">
-            <div class="benjamin">
-                <h1>Benjamin</h1>
-            </div>
-            <div class="dombry">
-                <h1>Dombry</h1>
-            </div>
-            <p>Développeur Web - Chef de Projet Digital</p>
+        <nav>
+            <ul>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<section id="main">
+    <div class="main-content">
+        <div class="benjamin">
+            <h1>Benjamin</h1>
         </div>
-    </section>
+        <div class="dombry">
+            <h1 id="typed-text"></h1>
+        </div>
+        <p>Développeur Web - Chef de Projet Digital</p>
+    </div>
+</section>
     <section id="bento-boxes">
         <div class="container bento-container">
             <div class="bento-box photo">
@@ -128,7 +128,7 @@ $projects = $projects_query->fetchAll(PDO::FETCH_ASSOC);
             <a href="admin/login.php" class="btn">Connexion Admin</a>
         </div>
     </footer>
-    <script src="js/script.js"></script>
+    <script defer src="js/script.js"></script>
 </body>
 
 </html>

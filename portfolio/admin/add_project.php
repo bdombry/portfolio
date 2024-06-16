@@ -48,30 +48,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <header>
-        <h1>Ajouter un Projet</h1>
+        <div class="container">
+            <h1>Ajouter un Projet</h1>
+            <a href="dashboard.php" class="btn">Retour au Dashboard</a>
+        </div>
     </header>
-    <section id="add-project">
-        <form action="add_project.php" method="post" enctype="multipart/form-data">
-            <p>
-                <label for="title">Titre:</label>
-                <input type="text" name="title" id="title" required>
-            </p>
-            <p>
-                <label for="description">Description:</label>
-                <textarea name="description" id="description" required></textarea>
-            </p>
-            <p>
-                <label for="technologies">Technologies:</label>
-                <input type="text" name="technologies" id="technologies" required>
-            </p>
-            <p>
-                <label for="image">Image:</label>
-                <input type="file" name="image" id="image" required>
-            </p>
-            <p>
-                <button type="submit">Ajouter</button>
-            </p>
-        </form>
-    </section>
+    <main class="dashboard">
+        <section class="card" id="add-project">
+            <form action="add_project.php" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="title">Titre:</label>
+                    <input type="text" name="title" id="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea name="description" id="description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="technologies">Technologies:</label>
+                    <input type="text" name="technologies" id="technologies" required>
+                </div>
+                <div class="form-group">
+                    <label for="image">Image:</label>
+                    <input type="file" name="image" id="image" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn">Ajouter</button>
+                </div>
+            </form>
+        </section>
+    </main>
 </body>
 </html>
+
+

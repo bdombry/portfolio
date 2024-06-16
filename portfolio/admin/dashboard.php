@@ -32,32 +32,39 @@ $comments = $comments_query->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
     <header>
-        <h1>Dashboard Admin</h1>
-        <a href="../index.php">Déconnexion</a>
+        <div class="container">
+            <h1>Dashboard Admin</h1>
+            <a href="../index.php" class="btn">Déconnexion</a>
+        </div>
     </header>
-    <section id="projects">
-        <h2>Projets</h2>
-        <a href="add_project.php">Ajouter un nouveau projet</a>
-        <ul>
-            <?php foreach ($projects as $project): ?>
-                <li>
-                    <?php echo htmlspecialchars($project['title']); ?>
-                    <a href="edit_project.php?id=<?php echo $project['id']; ?>">Modifier</a>
-                    <a href="delete_project.php?id=<?php echo $project['id']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce projet ?');">Supprimer</a>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    </section>
-    <section id="comments">
-        <h2>Commentaires</h2>
-        <ul>
-            <?php foreach ($comments as $comment): ?>
-                <li>
-                    <?php echo htmlspecialchars($comment['author']); ?> : <?php echo htmlspecialchars($comment['content']); ?>
-                    <a href="delete_comment.php?id=<?php echo $comment['id']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce commentaire ?');">Supprimer</a>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    </section>
+    <main class="dashboard">
+        <section class="card" id="projects">
+            <h2>Projets</h2>
+            <a href="add_project.php" class="btn">Ajouter un nouveau projet</a>
+            <ul>
+                <?php foreach ($projects as $project): ?>
+                    <li class="item">
+                        <span><?php echo htmlspecialchars($project['title']); ?></span>
+                        <div class="actions">
+                            <a href="edit_project.php?id=<?php echo $project['id']; ?>" class="btn">Modifier</a>
+                            <a href="delete_project.php?id=<?php echo $project['id']; ?>" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce projet ?');">Supprimer</a>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </section>
+        <section class="card" id="comments">
+            <h2>Commentaires</h2>
+            <ul>
+                <?php foreach ($comments as $comment): ?>
+                    <li class="item">
+                        <span><strong><?php echo htmlspecialchars($comment['author']); ?>:</strong> <?php echo htmlspecialchars($comment['content']); ?></span>
+                        <a href="delete_comment.php?id=<?php echo $comment['id']; ?>" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce commentaire ?');">Supprimer</a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </section>
+    </main>
 </body>
 </html>
+

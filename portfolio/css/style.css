@@ -82,9 +82,7 @@ header ul li a:hover {
     font-weight: 400;
 }
 
-.benjamin{
-    margin-bottom: -70px;
-}
+
 
 /* Pour les petits écrans */
 @media (min-width: 250px) and (max-width: 500px) {
@@ -120,9 +118,9 @@ header ul li a:hover {
 
     .dombry {
         font-size: 8vw;
+        margin-top: -30px;
     }
 }
-
 
 #main .main-content p {
     font-size: 1rem; /* Taille de police par défaut */
@@ -185,6 +183,7 @@ header ul li a:hover {
     flex-direction: column;
     align-items: center;
     text-align: center;
+
 }
 
 .bento-box:hover{
@@ -403,3 +402,215 @@ footer .btn:hover {
 
 /* ---------------------------------------------------------------------------- dashboard ---------------------------------------------------------------------------- */
 
+main.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.actions .btn {
+    margin-left: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    font-size: 0.85em;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: rgb(141, 109, 255);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: rgb(94, 50, 255);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+    }
+}
+
+
+
+/* ---------------------------------------------------------------------------- login ---------------------------------------------------------------------------- */
+/* button */
+.input {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 1em 0;
+    max-width: 300px;
+    position: relative;
+}
+
+.input input {
+    color: #fff;
+    font-size: 100%;
+    padding: 0.8em;
+    outline: none;
+    border: 2px solid rgb(141, 109, 255);
+    background-color: transparent;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.input label {
+    font-size: 100%;
+    position: absolute;
+    left: 0;
+    padding: 0.8em;
+    margin-left: 0.5em;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    color: rgb(255, 255, 255);
+    
+}
+
+.input input:focus ~ label,
+.input input:valid ~ label {
+    transform: translateY(-50%) scale(.9);
+    margin: 0;
+    margin-left: 1.3em;
+    padding: 0.4em;
+
+}
+
+.input input:focus {
+    border-color: rgb(94, 50, 255);
+    background: #444;
+}
+
+.card {
+    background-color: #212121;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.btn_login {
+    display: inline-block;
+    padding: 0.8em 1.2em;
+    margin-top: 1em;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: rgb(141, 109, 255);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.btn_login:hover {
+    background-color: rgb(94, 50, 255);
+}
+.deco{
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid #e74c3c;
+    border-radius: 20px;
+    padding: 0.2em 1em;
+    
+}
+.deco:hover{
+    border: 2px solid #c0392b;
+}
+/* ---------------------------------------------------------------------------- add project ---------------------------------------------------------------------------- */
+
+
+.card {
+    background: #444;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.form-group input,
+.form-group textarea {
+    background-color: #444;
+    width: 100%;
+    padding: 0.8em;
+    border: 2px solid rgb(141, 109, 255);
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+.form-group input[type="file"] {
+    padding: 0.5em;
+}
+
+.form-actions {
+    text-align: center;
+}
+
+
+.btn:hover {
+    background-color: rgb(94, 50, 255);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+    }
+}
