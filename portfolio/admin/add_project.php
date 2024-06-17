@@ -19,19 +19,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = $_POST['title'];
     $description = $_POST['description'];
     $technologies = $_POST['technologies'];
-    $image = $_FILES['image']['name'];
-    $image_tmp = $_FILES['image']['tmp_name'];
-
-    // Déplacer l'image téléchargée dans le dossier des images
-    move_uploaded_file($image_tmp, "../images/$image");
 
     // Ajouter le projet à la base de données
-    $query = $conn->prepare("INSERT INTO projects (title, description, technologies, image) VALUES (:title, :description, :technologies, :image)");
+    $query = $conn->prepare("INSERT INTO projects (title, description, technologies) VALUES (:title, :description, :technologies)");
     $query->bindParam(':title', $title, PDO::PARAM_STR);
     $query->bindParam(':description', $description, PDO::PARAM_STR);
     $query->bindParam(':technologies', $technologies, PDO::PARAM_STR);
-    $query->bindParam(':image', $image, PDO::PARAM_STR);
     $query->execute();
+
+    $project_id = $conn->lastInsertId();
+
+    // Traiter les images
+    foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
+        $image_name = $_FILES['images']['name'][$key];
+        $image_tmp = $_FILES['images']['tmp_name'][$key];
+        move_uploaded_file($image_tmp, "../images/$image_name");
+
+        $query = $conn->prepare("INSERT INTO project_images (project_id, image_path) VALUES (:project_id, :image_path)");
+        $query->bindParam(':project_id', $project_id, PDO::PARAM_INT);
+        $query->bindParam(':image_path', $image_name, PDO::PARAM_STR);
+        $query->execute();
+    }
 
     // Rediriger vers le dashboard
     header('Location: dashboard.php');
@@ -69,8 +77,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <input type="text" name="technologies" id="technologies" required>
                 </div>
                 <div class="form-group">
-                    <label for="image">Image:</label>
-                    <input type="file" name="image" id="image" required>
+                    <label for="images">Images:</label>
+                    <input type="file" name="images[]" id="images" multiple required>
                 </div>
                 <div class="form-actions">
                     <button type="submit" class="btn">Ajouter</button>
@@ -80,5 +88,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </main>
 </body>
 </html>
-
-

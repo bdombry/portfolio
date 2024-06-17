@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
         strings: ["Dombry . . ."],
         typeSpeed: 150,
         backSpeed: 50,
-        backDelay: 3000,
+        backDelay: 5000,
         loop: true,
         showCursor: false,
 
