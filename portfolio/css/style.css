@@ -195,7 +195,6 @@ header ul li a:hover {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     gap: 20px;
-    height: 80vh;
     line-height: 1.6;
 }
 
