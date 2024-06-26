@@ -5,7 +5,12 @@ $db = 'portfolio';
 $user = 'root';
 $pass = '';
 
-$conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+try {
+    $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+}
 
 // Récupérer les informations de l'utilisateur
 $query = $conn->prepare("SELECT * FROM users WHERE username = 'admin'");
@@ -15,6 +20,18 @@ $user_info = $query->fetch(PDO::FETCH_ASSOC);
 // Récupérer les projets
 $projects_query = $conn->query("SELECT * FROM projects");
 $projects = $projects_query->fetchAll(PDO::FETCH_ASSOC);
+
+// Récupérer les compétences
+$skills_query = $conn->query("SELECT * FROM skills");
+$skills = $skills_query->fetchAll(PDO::FETCH_ASSOC);
+
+// Récupérer les projets préférés
+$favorite_projects_query = $conn->query("SELECT projects.title, projects.description FROM favorite_projects JOIN projects ON favorite_projects.project_id = projects.id");
+$favorite_projects = $favorite_projects_query->fetchAll(PDO::FETCH_ASSOC);
+
+// Récupérer la description
+$description_query = $conn->query("SELECT description FROM about WHERE id = 1");
+$description = $description_query->fetch(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -65,17 +82,15 @@ $projects = $projects_query->fetchAll(PDO::FETCH_ASSOC);
         <div class="bento-box description">
             <h1>MOI C'EST BENJAMIN !</h1>
             <div class="bento_gap">
-                <p>J'ai découvert le monde du développement à 15 ans au lycée depuis je ne l'ai plus quitté. J'ai très vite compris la puissance et les possibilités infinies de ces outils et c'est pour cela que j'ai continué à évoluer dans ce domaine. Aujourd'hui étudiant je cherche à développer mes compétences pour pouvoir être à la hauteur de mes ambitions</p>
+                <p><?php echo htmlspecialchars($description['description']); ?></p>
             </div>
         </div>
         <div class="bento-box skills">
             <h2>SKILLS</h2>
             <div class="bento_gap">
-                <p>HTML | CSS | JavaScript</p>
-                <p>Python | PHP | MySQL</p>
-                <p>Wordpress</p>
-                <p>Illustrator</p>
-                <p>Anglais</p>
+                <?php foreach ($skills as $skill): ?>
+                    <p><?php echo htmlspecialchars($skill['name']); ?></p>
+                <?php endforeach; ?>
             </div>
         </div>
         <div class="bento-box links">
@@ -98,9 +113,9 @@ $projects = $projects_query->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="bento-box recent-projects">
             <h2>PROJET PREFERE</h2>
-            <p>Infographie NWS</p>
-            <p>Tour d'Hanoï</p>
-            <p>Escape Game Gastronomique</p>
+            <?php foreach ($favorite_projects as $favorite_project): ?>
+                <p><?php echo htmlspecialchars($favorite_project['title']); ?></p>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>
